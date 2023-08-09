@@ -1,4 +1,5 @@
 const container = document.querySelector(".books-container");
+const addBtn = document.querySelector("#add-book-btn");
 
 //Book Constructor
 function Book(title, author, pages, read) {
@@ -13,19 +14,30 @@ let myLibrary = [];
 /////////////////////////////////////////////////////////////////
 
 /*
-  Code below is placeholder data to test that the books are able
-  to be displayed from the array
-*/
-
-let book1 = new Book("Harry Potter", "Muhammad C", 284, "read");
-addBookToLibrary(book1);
-
-/*
   Note: With the way the code is currently setup, the displayBooks
   method will only run once. So, will need to call it each time any changes 
   are made
 */
 displayBooks();
+
+/////////////////////////////////////////////////////////////////
+
+addBtn.addEventListener("click", () => {
+  let title = prompt("Enter Title:");
+  let author = prompt("Enter Author:");
+  let pages = prompt("Enter Pages");
+  let read = prompt("Enter Read or Not Read:");
+
+  let book = new Book(title, author, pages, read);
+  addBookToLibrary(book);
+
+  /*
+    Have to reset the books displayed otherwise the books that were,
+    otherwise the books already displayed will be duplicated in the DOM
+  */
+  resetBooksDisplayed();
+  displayBooks();
+});
 
 /////////////////////////////////////////////////////////////////
 
@@ -51,6 +63,10 @@ function displayBooks() {
 
     i++;
   }
+}
+
+function resetBooksDisplayed() {
+  container.innerHTML = "";
 }
 
 function createTxt(context, text) {
