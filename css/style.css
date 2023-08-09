@@ -1,0 +1,104 @@
+:root {
+  --white: rgb(251, 251, 251);
+  --black: rgb(54, 54, 54);
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-rows: 1fr 6fr;
+}
+
+.header-container {
+  background-color: var(--black);
+  grid-column: span 2;
+
+  /*Style below is applied to the text*/
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.body-container {
+  background-color: var(--white);
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
+.books-container {
+  background-color: var(--black);
+  height: 640px;
+  width: 1000px;
+  border-radius: 20px;
+
+  margin-top: 80px;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book {
+  background-color: var(--white);
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.read-btn,
+.remove-btn {
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.remove-btn {
+  background-color: rgb(235, 82, 82);
+}
+
+#add-book-btn {
+  background-color: rgb(184, 184, 184);
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+  border-style: none;
+
+  position: fixed;
+  margin-top: 700px;
+  margin-left: 1500px;
+
+  font-size: 4rem;
+  color: var(--black);
+}
+
+#add-book-btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#book-counter {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  color: rgb(40, 40, 40);
+  gap: 8px;
+}
