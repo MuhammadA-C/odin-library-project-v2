@@ -61,6 +61,20 @@ container.addEventListener("click", (e) => {
   }
 });
 
+container.addEventListener("click", (e) => {
+  if (e.target.className === "read-btn") {
+    let text = e.target.textContent;
+
+    switch (text.toLowerCase()) {
+      case "read":
+        e.target.textContent = "Not Read";
+        break;
+      case "not read":
+        e.target.textContent = "Read";
+    }
+  }
+});
+
 /////////////////////////////////////////////////////////////////
 
 function addBookToLibrary(book) {
