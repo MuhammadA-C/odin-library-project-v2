@@ -39,6 +39,28 @@ addBtn.addEventListener("click", () => {
   displayBooks();
 });
 
+container.addEventListener("click", (e) => {
+  if (e.target.className === "remove-btn") {
+    let bookIndex =
+      e.target.parentElement.parentElement.getAttribute("data-array-index");
+    let array = [];
+
+    for (let i = 0; i < myLibrary.length; i++) {
+      if (i == bookIndex) {
+        continue;
+      }
+      array[i] = myLibrary[i];
+    }
+
+    clearArray(myLibrary);
+    copyArrayToAnotherArray(array, myLibrary);
+
+    //Reset & Update books displayed on page
+    resetBooksDisplayed();
+    displayBooks();
+  }
+});
+
 /////////////////////////////////////////////////////////////////
 
 function addBookToLibrary(book) {
@@ -70,6 +92,10 @@ function displayBooks() {
     container.appendChild(book);
 
     index++;
+  }
+
+  if (myLibrary.length === 0) {
+    resetBooksDisplayed();
   }
 }
 
@@ -106,4 +132,19 @@ function createBtnContainer(read) {
   btnDivContainer.appendChild(readBtn);
   btnDivContainer.appendChild(deleteBtn);
   return btnDivContainer;
+}
+
+function clearArray(array) {
+  let counter = myLibrary.length;
+
+  while (myLibrary.length > 0 && counter > 0) {
+    myLibrary.pop();
+    counter--;
+  }
+}
+
+function copyArrayToAnotherArray(arrayToCopy, array) {
+  for (let i = 0; i < arrayToCopy.length; i++) {
+    array[i] = arrayToCopy[i];
+  }
 }
