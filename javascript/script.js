@@ -46,22 +46,30 @@ function addBookToLibrary(book) {
 }
 
 function displayBooks() {
-  let i = 0;
+  let index = 0;
 
-  while (myLibrary.length > 0 && i < myLibrary.length) {
+  while (myLibrary.length > 0 && index < myLibrary.length) {
     //Display books
-    let titleTxt = createTxt("Title", myLibrary[i].title);
-    let authorTxt = createTxt("Author", myLibrary[i].author);
-    let pagesTxt = createTxt("Pages", myLibrary[i].pages);
+    let titleTxt = createTxt("Title", myLibrary[index].title);
+    let authorTxt = createTxt("Author", myLibrary[index].author);
+    let pagesTxt = createTxt("Pages", myLibrary[index].pages);
     let book = createBookContainer();
-    let btnDivContainer = createBtnContainer(myLibrary[i].read);
+    let btnDivContainer = createBtnContainer(myLibrary[index].read);
+
     book.appendChild(titleTxt);
     book.appendChild(authorTxt);
     book.appendChild(pagesTxt);
     book.appendChild(btnDivContainer);
+
+    /* 
+      Data Attribute is used to store the array index location.
+      The array index location will be used to locate the book object to remove it
+    */
+    book.setAttribute("data-array-index", index);
+    //Adds the book object to the DOM
     container.appendChild(book);
 
-    i++;
+    index++;
   }
 }
 
