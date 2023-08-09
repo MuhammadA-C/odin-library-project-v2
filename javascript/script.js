@@ -1,3 +1,18 @@
+/*
+
+  Overview: This was a part of The Odin Project Full Stack JavaScript course.
+  For this project you were supposed to create a library that allows the user to
+  input books that they read or not read, and the UI updates to display the books.
+
+  Notes: 
+    1. The project instructions said to obtain the user input via a form and I didn't use one
+    2. There's no input validation for the user input. (Note: Input validation wasn't explicitly stated to include)
+    3. There's no check to prevent duplicate books from being added. (Note: I don't believe the instructions said to add a duplicate check)
+
+*/
+
+/////////////////////////////////////////////////////////////////
+
 const container = document.querySelector(".books-container");
 const addBtn = document.querySelector("#add-book-btn");
 
